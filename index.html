@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Abdelhakeem - Flutter Developer</title>
+    <meta name="description" content="Flutter Developer with 2+ years of experience in cross-platform mobile app development and frontend engineering">
+    <meta name="keywords" content="Flutter Developer, Mobile App Development, Cross-platform, Dart, Frontend, Cairo Egypt">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahmed-abdelhakeem.vercel.app/">
+    <meta property="og:title" content="Ahmed Abdelhakeem - Flutter Developer">
+    <meta property="og:description" content="Flutter Developer with 2+ years of experience in cross-platform mobile app development and frontend engineering">
+    <meta property="og:image" content="https://ahmed-abdelhakeem.vercel.app/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ahmed-abdelhakeem.vercel.app/">
+    <meta property="twitter:title" content="Ahmed Abdelhakeem - Flutter Developer">
+    <meta property="twitter:description" content="Flutter Developer with 2+ years of experience in cross-platform mobile app development and frontend engineering">
+    <meta property="twitter:image" content="https://ahmed-abdelhakeem.vercel.app/og-image.png">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="Ahmed Abdelhakeem Hussein">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -20px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.5s ease-out;
+        }
+        
+        .skill-bar.animate {
+            transform: scaleX(1);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .hero-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .hero-name {
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Loading animation improvements */
+        .loading-spinner {
+            border: 4px solid rgba(147, 51, 234, 0.1);
+            border-left: 4px solid #9333ea;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Performance optimizations */
+        .will-change-transform {
+            will-change: transform;
+        }
+
+        .will-change-opacity {
+            will-change: opacity;
+        }
+
+        /* Print styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .glass-effect {
+                background: white !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-gray-900 z-50 flex items-center justify-center">
+        <div class="text-center">
+            <div class="loading-spinner mx-auto mb-4"></div>
+            <p class="text-xl hero-text font-semibold">Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold hero-text">Ahmed Abdelhakeem</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-purple-400 transition-colors">Home</a>
+                    <a href="#about" class="nav-link hover:text-purple-400 transition-colors">About</a>
+                    <a href="#experience" class="nav-link hover:text-purple-400 transition-colors">Experience</a>
+                    <a href="#projects" class="nav-link hover:text-purple-400 transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link hover:text-purple-400 transition-colors">Skills</a>
+                    <a href="#contact" class="nav-link hover:text-purple-400 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-95 z-30 transform -translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#home" class="mobile-menu-link hover:text-purple-400 transition-colors">Home</a>
+            <a href="#about" class="mobile-menu-link hover:text-purple-400 transition-colors">About</a>
+            <a href="#experience" class="mobile-menu-link hover:text-purple-400 transition-colors">Experience</a>
+            <a href="#projects" class="mobile-menu-link hover:text-purple-400 transition-colors">Projects</a>
+            <a href="#skills" class="mobile-menu-link hover:text-purple-400 transition-colors">Skills</a>
+            <a href="#contact" class="mobile-menu-link hover:text-purple-400 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center gradient-bg relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-20" id="particles-container">
+            <div class="floating absolute top-20 left-10 w-20 h-20 bg-white rounded-full"></div>
+            <div class="floating absolute top-40 right-20 w-16 h-16 bg-purple-300 rounded-full" style="animation-delay: -2s;"></div>
+            <div class="floating absolute bottom-20 left-1/4 w-12 h-12 bg-blue-300 rounded-full" style="animation-delay: -4s;"></div>
+            <div class="floating absolute bottom-40 right-1/3 w-24 h-24 bg-pink-300 rounded-full" style="animation-delay: -3s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="hero-content">
+                <div class="mb-8">
+                    <p class="text-lg text-gray-200 mb-4">👋 Hello, I'm</p>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        <span class="block hero-name relative" id="typing-name">
+                            <span class="absolute inset-0 bg-gradient-to-r from-white/30 to-blue-400/30 blur-3xl"></span>
+                            <span class="relative z-10">Ahmed Abdelhakeem Hussein</span>
+                        </span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">Flutter Developer</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                        Passionate Flutter Developer with <span class="font-semibold text-purple-300">2+ years</span> of experience crafting beautiful cross-platform mobile applications and scalable web solutions in Cairo, Egypt
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#projects" class="inline-block bg-white text-purple-600 px-8 py-4 rounded-full font-semibold btn-glow hover:bg-gray-100 transition-all">
+                        <i class="fas fa-code mr-2"></i>View My Work
+                    </a>
+                    <a href="#contact" class="inline-block border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all">
+                        <i class="fas fa-envelope mr-2"></i>Get In Touch
+                    </a>
+                    <a href="tel:+201104742253" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                </div>
+                
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/ahmed-abdelhakeem-5147aa1b6" target="_blank" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all hover:scale-110">
+                        <i class="fab fa-linkedin text-2xl text-white"></i>
+                    </a>
+                    <a href="https://github.com/AhmedAbdelhakem" target="_blank" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all hover:scale-110">
+                        <i class="fab fa-github text-2xl text-white"></i>
+                    </a>
+                    <a href="mailto:ahmedabdelhakem199@gmail.com" class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all hover:scale-110">
+                        <i class="fas fa-envelope text-2xl text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Arrow -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white opacity-70 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 section-title hero-text">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div class="about-content">
+                    <h3 class="text-3xl font-semibold mb-6 text-purple-400">Passionate Flutter Developer</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                        I'm a passionate and highly motivated Flutter Developer with over <strong class="text-purple-400">2 years and 2 months</strong> of hands-on experience in cross-platform mobile app development and frontend engineering. Currently based in <strong class="text-purple-400">Cairo, Egypt</strong>, I specialize in crafting responsive UI/UX, developing RESTful APIs, and optimizing application performance.
+                    </p>
+                    <p class="text-gray-300 mb-6 leading-relaxed text-lg">
+                        My expertise extends to SEO strategies, analytics tools, and modern web technologies like <strong class="text-purple-400">Tailwind CSS</strong>, <strong class="text-purple-400">Alpine.js</strong>, and <strong class="text-purple-400">GSAP</strong>. I'm committed to continuous learning, clean code practices, and delivering user-centric software solutions that make a real impact.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-purple-400 text-xl"></i>
+                            <span class="text-lg">Cairo, Egypt</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-graduation-cap text-purple-400 text-xl"></i>
+                            <span class="text-lg">B.Sc. Computer Science</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-briefcase text-purple-400 text-xl"></i>
+                            <span class="text-lg">2+ Years Experience</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-language text-purple-400 text-xl"></i>
+                            <span class="text-lg">Arabic & English</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all btn-glow">
+                        Let's Work Together
+                    </a>
+                </div>
+                <div class="about-image">
+                    <div class="glass-effect rounded-2xl p-8 text-center">
+                        <div class="w-40 h-40 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-code text-5xl text-white"></i>
+                        </div>
+                        <h4 class="text-2xl font-semibold mb-4">2+ Years Experience</h4>
+                        <p class="text-gray-300 text-lg mb-6">Specialized in Flutter development and cross-platform solutions</p>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <div class="text-3xl font-bold text-purple-400">50+</div>
+                                <div class="text-sm text-gray-400">Projects</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold text-purple-400">100%</div>
+                                <div class="text-sm text-gray-400">Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 section-title hero-text">Professional Experience</h2>
+            <div class="max-w-6xl mx-auto">
+                <!-- Current Position -->
+                <div class="experience-item glass-effect rounded-2xl p-8 mb-8 relative">
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-emerald-400 to-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg transform hover:scale-105 transition-all border-2 border-white/20">
+                        <i class="fas fa-circle text-xs mr-1 animate-pulse"></i>Current
+                    </div>
+                    <div class="flex flex-col lg:flex-row justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-semibold text-purple-400 mb-2">Flutter Developer | Frontend Developer</h3>
+                            <h4 class="text-xl text-gray-300 mb-2">INSITE OOH - Cairo, Egypt</h4>
+                            <p class="text-gray-400">Building scalable mobile and web applications</p>
+                        </div>
+                        <div class="text-gray-400 lg:text-right mt-4 lg:mt-0">
+                            <span class="block text-lg font-semibold">Mar 2023 – Present</span>
+                            <span class="block text-sm">1 year 10 months</span>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="text-lg font-semibold text-purple-300 mb-3">Key Achievements:</h5>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-purple-400 mt-1 flex-shrink-0"></i>
+                                    <span>Built and maintained RESTful API backend to enhance scalability and performance</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-purple-400 mt-1 flex-shrink-0"></i>
+                                    <span>Implemented caching mechanisms and optimized memory usage for improved application speed</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-purple-400 mt-1 flex-shrink-0"></i>
+                                    <span>Created reusable components using Tailwind CSS to streamline UI development</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="text-lg font-semibold text-purple-300 mb-3">Technologies Used:</h5>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-purple-400 mt-1 flex-shrink-0"></i>
+                                    <span>Developed interactive front-end elements with HTML, CSS, and JavaScript</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-purple-400 mt-1 flex-shrink-0"></i>
+                                    <span>Leveraged Flutter SDK for immersive cross-platform experiences</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check-circle text-purple-400 mt-1 flex-shrink-0"></i>
+                                    <span>Developed custom UI libraries to boost code reusability and team productivity</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="experience-item glass-effect rounded-2xl p-8">
+                    <div class="flex flex-col lg:flex-row justify-between mb-6">
+                        <div>
+                            <h3 class="text-3xl font-semibold text-purple-400 mb-2">Bachelor of Science in Computer Science</h3>
+                            <h4 class="text-xl text-gray-300 mb-2">Higher Technological Institute</h4>
+                            <p class="text-gray-400">Comprehensive computer science education with focus on software development</p>
+                        </div>
+                        <div class="text-gray-400 lg:text-right mt-4 lg:mt-0">
+                            <span class="block text-lg font-semibold">Oct 2019 – Jan 2023</span>
+                            <span class="block text-sm">3 years 4 months</span>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                            <h5 class="font-semibold text-purple-300">Degree</h5>
+                            <p class="text-gray-300">B.Sc. Computer Science</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                                <i class="fas fa-code text-white text-2xl"></i>
+                            </div>
+                            <h5 class="font-semibold text-purple-300">Focus</h5>
+                            <p class="text-gray-300">Software Development</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mx-auto mb-3 flex items-center justify-center">
+                                <i class="fas fa-certificate text-white text-2xl"></i>
+                            </div>
+                            <h5 class="font-semibold text-purple-300">Status</h5>
+                            <p class="text-gray-300">Graduated</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 section-title hero-text">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Articles App -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-newspaper text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">Articles App</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">A comprehensive Flutter-based articles reading application featuring clean architecture, modern UI design, and seamless user experience for content consumption.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-purple-600 text-xs px-3 py-1 rounded-full">Flutter</span>
+                            <span class="bg-blue-600 text-xs px-3 py-1 rounded-full">Dart</span>
+                            <span class="bg-green-600 text-xs px-3 py-1 rounded-full">API</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AhmedAbdelhakem/Articles-App" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center hover:from-purple-700 hover:to-blue-700 transition-all">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instagram Firebase Clone -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-red-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fab fa-instagram text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">Instagram Firebase Clone</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Full-featured Instagram clone built with Flutter and Firebase backend integration, including user authentication, photo sharing, and real-time interactions.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-purple-600 text-xs px-3 py-1 rounded-full">Flutter</span>
+                            <span class="bg-orange-600 text-xs px-3 py-1 rounded-full">Firebase</span>
+                            <span class="bg-red-600 text-xs px-3 py-1 rounded-full">Authentication</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AhmedAbdelhakem/instegram-firebase" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center hover:from-purple-700 hover:to-blue-700 transition-all">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping API -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">Shopping API</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Robust RESTful API development for e-commerce applications with Flutter integration, featuring product management, cart functionality, and secure payment processing.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-purple-600 text-xs px-3 py-1 rounded-full">Flutter</span>
+                            <span class="bg-green-600 text-xs px-3 py-1 rounded-full">REST API</span>
+                            <span class="bg-blue-600 text-xs px-3 py-1 rounded-full">E-commerce</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AhmedAbdelhakem/shopping-API" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center hover:from-purple-700 hover:to-blue-700 transition-all">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tic Tac Toe Game -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-red-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-gamepad text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">Tic Tac Toe Game</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Interactive Tic Tac Toe game built with Flutter showcasing advanced game logic, AI opponent, and beautiful UI design with smooth animations.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-purple-600 text-xs px-3 py-1 rounded-full">Flutter</span>
+                            <span class="bg-yellow-600 text-xs px-3 py-1 rounded-full">Game Dev</span>
+                            <span class="bg-red-600 text-xs px-3 py-1 rounded-full">AI Logic</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AhmedAbdelhakem/TEC-TAC-TOE" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center hover:from-purple-700 hover:to-blue-700 transition-all">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Call Integration -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-video text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">Video Call Integration</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Real-time video calling application with Flutter and WebRTC integration, featuring HD video quality, chat functionality, and cross-platform compatibility.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-purple-600 text-xs px-3 py-1 rounded-full">Flutter</span>
+                            <span class="bg-indigo-600 text-xs px-3 py-1 rounded-full">WebRTC</span>
+                            <span class="bg-blue-600 text-xs px-3 py-1 rounded-full">Real-time</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AhmedAbdelhakem/Videocall-Integration-app" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center hover:from-purple-700 hover:to-blue-700 transition-all">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liquid Glass UI -->
+                <div class="project-card glass-effect rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-palette text-6xl text-white opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                            <i class="fab fa-github text-white"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-3 group-hover:text-purple-400 transition-colors">Liquid Glass UI</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">Modern glass morphism UI components with liquid animations and effects, showcasing advanced CSS techniques and interactive design patterns.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-cyan-600 text-xs px-3 py-1 rounded-full">HTML</span>
+                            <span class="bg-blue-600 text-xs px-3 py-1 rounded-full">CSS</span>
+                            <span class="bg-purple-600 text-xs px-3 py-1 rounded-full">GSAP</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/AhmedAbdelhakem/Liquid-Glass-UI" target="_blank" class="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg text-center hover:from-purple-700 hover:to-blue-700 transition-all">
+                                <i class="fab fa-github mr-2"></i>View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View More Projects Button -->
+            <div class="text-center mt-12">
+                <a href="https://github.com/AhmedAbdelhakem" target="_blank" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all btn-glow">
+                    <i class="fab fa-github mr-2"></i>View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 section-title hero-text">Skills & Technologies</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Mobile Development -->
+                <div class="skill-category glass-effect rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-purple-400">Mobile Development</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Flutter & Dart</span>
+                                <span class="text-purple-400 font-semibold">95%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Cross-platform Apps</span>
+                                <span class="text-purple-400 font-semibold">90%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Firebase Integration</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="skill-category glass-effect rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-globe text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-purple-400">Web Development</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Tailwind CSS</span>
+                                <span class="text-purple-400 font-semibold">90%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">JavaScript</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">HTML & CSS</span>
+                                <span class="text-purple-400 font-semibold">95%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="95"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend & Tools -->
+                <div class="skill-category glass-effect rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-server text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-purple-400">Backend & Tools</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">RESTful APIs</span>
+                                <span class="text-purple-400 font-semibold">90%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Python</span>
+                                <span class="text-purple-400 font-semibold">80%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Git & Version Control</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design & Animation -->
+                <div class="skill-category glass-effect rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-purple-400">Design & Animation</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">GSAP Animations</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">UI/UX Design</span>
+                                <span class="text-purple-400 font-semibold">80%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Figma</span>
+                                <span class="text-purple-400 font-semibold">75%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEO & Analytics -->
+                <div class="skill-category glass-effect rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-purple-400">SEO & Analytics</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">SEO Optimization</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Google Analytics</span>
+                                <span class="text-purple-400 font-semibold">80%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Performance Optimization</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-category glass-effect rounded-2xl p-8 hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-purple-400">Soft Skills</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Problem Solving</span>
+                                <span class="text-purple-400 font-semibold">95%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Team Collaboration</span>
+                                <span class="text-purple-400 font-semibold">90%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-3">
+                                <span class="font-medium">Time Management</span>
+                                <span class="text-purple-400 font-semibold">85%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications Section -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center mb-12 text-purple-400">Certifications & Courses</h3>
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-effect rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fab fa-python text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Python Complete Course</h4>
+                        <p class="text-gray-400 text-sm mb-2">Udemy - Mar 2022</p>
+                        <p class="text-gray-300 text-sm">Comprehensive Python programming course covering fundamentals to advanced concepts</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
+                            <i class="fab fa-flutter text-white text-3xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Complete Flutter Development</h4>
+                        <p class="text-gray-400 text-sm mb-2">Udemy - Mar 2022</p>
+                        <p class="text-gray-300 text-sm">Complete Flutter & Dart development guide covering cross-platform app development</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-2">Flutter & Dart Arabic Course</h4>
+                        <p class="text-gray-400 text-sm mb-2">Udemy - Mar 2022</p>
+                        <p class="text-gray-300 text-sm">Complete 2022 Flutter & Dart development course in Arabic language</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 section-title hero-text">Get In Touch</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <div class="glass-effect rounded-2xl p-8">
+                            <h3 class="text-3xl font-semibold mb-6 text-purple-400">Let's Work Together</h3>
+                            <p class="text-gray-300 mb-8 leading-relaxed text-lg">
+                                I'm always interested in new opportunities and exciting projects. Whether you need a Flutter developer for your mobile app or want to discuss a web development project, I'd love to hear from you.
+                            </p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4 group hover:scale-105 transition-transform">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-blue-500 rounded-xl flex items-center justify-center group-hover:shadow-lg transition-all">
+                                        <i class="fas fa-envelope text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg text-purple-300">Email</h4>
+                                        <a href="mailto:ahmedabdelhakem199@gmail.com" class="text-gray-300 hover:text-purple-400 transition-colors">
+                                            ahmedabdelhakem199@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 group hover:scale-105 transition-transform">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center group-hover:shadow-lg transition-all">
+                                        <i class="fas fa-phone text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg text-purple-300">Phone</h4>
+                                        <a href="tel:+201104742253" class="text-gray-300 hover:text-purple-400 transition-colors">
+                                            +20 110 474 2253
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 group hover:scale-105 transition-transform">
+                                    <div class="w-14 h-14 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center group-hover:shadow-lg transition-all">
+                                        <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-lg text-purple-300">Location</h4>
+                                        <span class="text-gray-300">Cairo, Egypt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4 mt-8">
+                                <a href="https://www.linkedin.com/in/ahmed-abdelhakeem-5147aa1b6" target="_blank" class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center hover:scale-110 transition-all hover:shadow-lg">
+                                    <i class="fab fa-linkedin text-white text-xl"></i>
+                                </a>
+                                <a href="https://github.com/AhmedAbdelhakem" target="_blank" class="w-14 h-14 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center hover:scale-110 transition-all hover:shadow-lg">
+                                    <i class="fab fa-github text-white text-xl"></i>
+                                </a>
+                                <a href="https://wa.me/201104742253" target="_blank" class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center hover:scale-110 transition-all hover:shadow-lg">
+                                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <div class="glass-effect rounded-2xl p-8">
+                            <h3 class="text-2xl font-semibold mb-6 text-purple-400">Send Me a Message</h3>
+                            <form id="contact-form" class="space-y-6">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2 text-purple-300">Your Name</label>
+                                        <input type="text" id="name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent outline-none transition-all" placeholder="John Doe">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2 text-purple-300">Your Email</label>
+                                        <input type="email" id="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent outline-none transition-all" placeholder="john@example.com">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 text-purple-300">Subject</label>
+                                    <input type="text" id="subject" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent outline-none transition-all" placeholder="Project Discussion">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2 text-purple-300">Message</label>
+                                    <textarea rows="6" id="message" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-400 focus:border-transparent outline-none transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all btn-glow">
+                                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold hero-text mb-4">Ahmed Abdelhakeem Hussein</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        Flutter Developer passionate about creating beautiful, functional cross-platform applications. Based in Cairo, Egypt, ready to bring your ideas to life.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/ahmed-abdelhakeem-5147aa1b6" target="_blank" class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center hover:scale-110 transition-all">
+                            <i class="fab fa-linkedin text-white"></i>
+                        </a>
+                        <a href="https://github.com/AhmedAbdelhakem" target="_blank" class="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg flex items-center justify-center hover:scale-110 transition-all">
+                            <i class="fab fa-github text-white"></i>
+                        </a>
+                        <a href="mailto:ahmedabdelhakem199@gmail.com" class="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center hover:scale-110 transition-all">
+                            <i class="fas fa-envelope text-white"></i>
+                        </a>
+                        <a href="tel:+201104742253" class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center hover:scale-110 transition-all">
+                            <i class="fas fa-phone text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-purple-400 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-purple-400 transition-colors">About Me</a></li>
+                        <li><a href="#experience" class="text-gray-400 hover:text-purple-400 transition-colors">Experience</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-purple-400 transition-colors">Projects</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-purple-400 transition-colors">Skills</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-purple-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-purple-400 mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Flutter App Development</li>
+                        <li>Cross-platform Solutions</li>
+                        <li>UI/UX Design</li>
+                        <li>API Integration</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 mb-2">
+                    © 2025 Ahmed Abdelhakeem Hussein. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    Built with <span class="text-red-400">♥</span> using Tailwind CSS and GSAP in Cairo, Egypt
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-110 transition-all opacity-0 pointer-events-none z-30">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Loading screen
+        window.addEventListener('load', () => {
+            gsap.to('#loading-screen', {
+                opacity: 0,
+                duration: 0.5,
+                delay: 1,
+                onComplete: () => {
+                    document.getElementById('loading-screen').style.display = 'none';
+                    initAnimations();
+                }
+            });
+        });
+
+        // Initialize GSAP animations
+        function initAnimations() {
+            // Hero section animations
+            gsap.timeline()
+                .from('.hero-content p:first-child', {
+                    duration: 0.8,
+                    y: 30,
+                    opacity: 0,
+                    ease: 'power3.out'
+                })
+                .from('.hero-content h1', {
+                    duration: 1.2,
+                    y: 100,
+                    opacity: 0,
+                    ease: 'power3.out'
+                }, '-=0.5')
+                .from('.hero-content h2', {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                }, '-=0.8')
+                .from('.hero-content p:last-of-type', {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                }, '-=0.6')
+                .from('.hero-content .flex', {
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out',
+                    stagger: 0.2
+                }, '-=0.4');
+
+            // About section animations
+            gsap.from('.about-content', {
+                scrollTrigger: {
+                    trigger: '.about-content',
+                    start: 'top 80%'
+                },
+                duration: 1.2,
+                x: -100,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.about-image', {
+                scrollTrigger: {
+                    trigger: '.about-image',
+                    start: 'top 80%'
+                },
+                duration: 1.2,
+                x: 100,
+                opacity: 0,
+                ease: 'power3.out',
+                delay: 0.3
+            });
+
+            // Experience section animations
+            gsap.from('.experience-item', {
+                scrollTrigger: {
+                    trigger: '.experience-item',
+                    start: 'top 80%'
+                },
+                duration: 1,
+                y: 100,
+                opacity: 0,
+                ease: 'power3.out',
+                stagger: 0.3
+            });
+
+            // Projects section animations  
+            gsap.from('.project-card', {
+                scrollTrigger: {
+                    trigger: '#projects',
+                    start: 'top 80%'
+                },
+                duration: 0.8,
+                y: 100,
+                opacity: 0,
+                ease: 'power3.out',
+                stagger: 0.2
+            });
+
+            // Skills section animations
+            gsap.from('.skill-category', {
+                scrollTrigger: {
+                    trigger: '#skills',
+                    start: 'top 80%'
+                },
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out',
+                stagger: 0.15
+            });
+
+            // Animate skill bars
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                gsap.to(bar, {
+                    scrollTrigger: {
+                        trigger: bar,
+                        start: 'top 85%'
+                    },
+                    scaleX: width / 100,
+                    duration: 1.5,
+                    ease: 'power3.out',
+                    delay: 0.2
+                });
+            });
+
+            // Contact section animations
+            gsap.from('.contact-info', {
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 80%'
+                },
+                duration: 1,
+                x: -50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.contact-form', {
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 80%'
+                },
+                duration: 1,
+                x: 50,
+                opacity: 0,
+                ease: 'power3.out',
+                delay: 0.3
+            });
+
+            // Section titles animation
+            gsap.from('.section-title', {
+                scrollTrigger: {
+                    trigger: '.section-title',
+                    start: 'top 85%'
+                },
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out',
+                stagger: 0.2
+            });
+        }
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            let isMenuOpen = false;
+
+            mobileMenuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.style.transform = 'translateX(0)';
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-times text-xl"></i>';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.style.transform = 'translateX(-100%)';
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    isMenuOpen = false;
+                    mobileMenu.style.transform = 'translateX(-100%)';
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        function initSmoothScrolling() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed nav
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Contact form handling
+        function initContactForm() {
+            const form = document.getElementById('contact-form');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Create mailto link
+                const mailtoLink = `mailto:ahmedabdelhakem199@gmail.com?subject=${encodeURIComponent(subject || 'Contact from Portfolio')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                
+                // Open default email client
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                const button = form.querySelector('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check mr-2"></i>Email Client Opened!';
+                button.classList.add('from-green-600', 'to-green-700');
+                button.classList.remove('from-purple-600', 'to-blue-600');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('from-green-600', 'to-green-700');
+                    button.classList.add('from-purple-600', 'to-blue-600');
+                    form.reset();
+                }, 3000);
+            });
+        }
+
+        // Navbar background on scroll
+        function initNavbarScroll() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('glass-effect');
+                } else {
+                    navbar.classList.remove('glass-effect');
+                }
+            });
+        }
+
+        // Back to top button
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Add some particle effects to hero section
+        function createParticles() {
+            const heroSection = document.querySelector('#home');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                heroSection.appendChild(particle);
+            }
+        }
+
+        // Active navigation link highlighting
+        function initActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('text-purple-400');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('text-purple-400');
+                    }
+                });
+            });
+        }
+
+        // Typing effect for hero name
+        function initTypingEffect() {
+            const text = "Ahmed Abdelhakeem Hussein";
+            const element = document.getElementById('typing-name');
+            let index = 0;
+            
+            element.innerHTML = '';
+            
+            function typeWriter() {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 100);
+                } else {
+                    element.classList.add('typing');
+                    setTimeout(() => {
+                        element.classList.remove('typing');
+                    }, 2000);
+                }
+            }
+            
+            setTimeout(typeWriter, 1500);
+        }
+
+        // Cursor animation
+        function initCursor() {
+            const cursor = document.createElement('div');
+            cursor.className = 'fixed w-4 h-4 bg-purple-400 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-200 ease-out';
+            cursor.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(cursor);
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function animateCursor() {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            
+            // Only show custom cursor on desktop
+            if (window.innerWidth > 768) {
+                animateCursor();
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initMobileMenu();
+            initSmoothScrolling();
+            initContactForm();
+            initNavbarScroll();
+            initBackToTop();
+            initActiveNavigation();
+            initTypingEffect();
+            setTimeout(createParticles, 2000);
+            
+            // Only init cursor on desktop
+            if (window.innerWidth > 768) {
+                initCursor();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            // Refresh ScrollTrigger on resize
+            ScrollTrigger.refresh();
+        });
+
+        // Intersection Observer for additional animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for additional animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementsToObserve = document.querySelectorAll('.glass-effect');
+            elementsToObserve.forEach(el => observer.observe(el));
+        });
+
+        // Add custom CSS for fade in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fadeInUp {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Service Worker for PWA capabilities
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            const perfData = performance.timing;
+            const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+            console.log(`Page load time: ${loadTime}ms`);
+            
+            // Send analytics data (optional)
+            if (loadTime < 3000) {
+                console.log('✅ Excellent performance!');
+            } else if (loadTime < 5000) {
+                console.log('⚠️ Good performance, but could be optimized');
+            } else {
+                console.log('❌ Performance needs improvement');
+            }
+        });
+
+        // Error tracking
+        window.addEventListener('error', (e) => {
+            console.error('JavaScript error:', e.error);
+        });
+
+        // Unhandled promise rejection tracking
+        window.addEventListener('unhandledrejection', (e) => {
+            console.error('Unhandled promise rejection:', e.reason);
+        });
+    </script>
+</body>
+</html>
